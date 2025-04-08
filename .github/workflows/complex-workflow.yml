@@ -1,4 +1,7 @@
 name: Complex Workflow
+env:
+  WORKFLOW_NAME: "Complex workflow"
+  
 on: push
 jobs:
   lint:
@@ -19,7 +22,14 @@ jobs:
     steps:
       - name: Echo the secret
         run: echo ${{ secrets.TEST_SECRET }}
-      
+
+  showvariables:
+    runs-on: windows-latest
+    needs: [secrets]
+    steps:
+      - name: Echo the variables
+        run: $env:WORKFLOW_NAME
+        
   uBuntu:
     runs-on: ubuntu-latest
     steps:
