@@ -35,10 +35,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: [showvariables]
     steps:
+      - name: Build artifact
+        run: go build ${{ env.ARTIFACT_NAME }}.go
+        
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with: 
-          path: ${{env.ARTIFACT_NAME}}
+          path: ./${{env.ARTIFACT_NAME}}
         
   uBuntu:
     runs-on: ubuntu-latest
