@@ -1,1 +1,1 @@
-select * from master.sys.databases
+SELECT name FROM master.sys.databases
