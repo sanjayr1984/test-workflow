@@ -39,7 +39,7 @@ jobs:
         run: go build ${{ env.ARTIFACT_NAME }}.go
         
       - name: Upload artifact
-        uses: actions/upload-artifact@3.0
+        uses: actions/upload-artifact@v4
         with: 
           name: Test_artifact
           path: ./${{env.ARTIFACT_NAME}}
