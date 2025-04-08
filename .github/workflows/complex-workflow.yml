@@ -1,6 +1,7 @@
 name: Complex Workflow
 env:
   WORKFLOW_NAME: "Complex workflow"
+  ARTIFACT_NAME: test-artifact
   
 on: push
 jobs:
@@ -29,6 +30,15 @@ jobs:
     steps:
       - name: Echo the variables
         run: $env:WORKFLOW_NAME
+
+  upload_artifacts:
+    runs-on: ubuntu-latest
+    needs: [showvariables]
+    steps:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with: 
+          path: ${{env.ARTIFACT_NAME}}
         
   uBuntu:
     runs-on: ubuntu-latest
