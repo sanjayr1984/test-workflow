@@ -10,7 +10,7 @@ jobs:
       - name: TSQL Lint
         uses: lowlydba/tsqllint-action@v.1.3.2
         with: 
-          path: "*.sql *.SQL"
+          path: "./*.sql"
           config: "./.github/linters/.tsqllintrc"
 
   uBuntu:
